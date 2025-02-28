@@ -22,10 +22,17 @@ public class BirdScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) == true && birdIsAlive) {
         myRigidBody.linearVelocity = Vector2.up * flapStrength;
         }
+        Vector3 screenPosition = Camera.main.WorldToViewportPoint(transform.position);
+        if (screenPosition.y > 1 || screenPosition.y < 0) 
+        {
+            birdIsAlive = false;
+            logic.gameOver();
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         logic.gameOver();
         birdIsAlive = false;
     }
+    
 }
