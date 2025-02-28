@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PipeMiddle : MonoBehaviour
@@ -8,6 +9,8 @@ public class PipeMiddle : MonoBehaviour
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        birdStatus = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdScript>();
+        
     }
 
     // Update is called once per frame
@@ -18,7 +21,7 @@ public class PipeMiddle : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == 3 && birdStatus.getBirdStatus()) {
+        if((collision.gameObject.layer == 3) && birdStatus.birdIsAlive) {
             logic.addScore(1);
         }
     }

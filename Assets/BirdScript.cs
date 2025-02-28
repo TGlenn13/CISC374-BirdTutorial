@@ -10,13 +10,10 @@ public class BirdScript : MonoBehaviour
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        
     }
 
     // Update is called once per frame
-
-    public bool getBirdStatus(){
-        return birdIsAlive;
-    }
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space) == true && birdIsAlive) {
@@ -31,8 +28,8 @@ public class BirdScript : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        logic.gameOver();
         birdIsAlive = false;
+        logic.gameOver();
     }
     
 }
