@@ -13,6 +13,7 @@ public class LogicScript : MonoBehaviour
 
     void Start()
     {
+        //Checks if BG music is null because null music caused game to crash
         if (backgroundMusic != null)
         {
             backgroundMusic.loop = true;
@@ -28,7 +29,8 @@ public class LogicScript : MonoBehaviour
     }
 
     public void restartGame(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); //Restarts the game to a fresh game
+         //Checks if BG music is null because null music caused game to crash
         if (backgroundMusic != null)
         {
             backgroundMusic.Stop();
@@ -37,7 +39,8 @@ public class LogicScript : MonoBehaviour
 
     public void gameOver(){
         gameOverScreen.SetActive(true);
-        Object.FindAnyObjectByType<HighScore>().CheckForHighScore(playerScore);
+        Object.FindAnyObjectByType<HighScore>().CheckForHighScore(playerScore); //Highscore updated
+         //Checks if BG music is null because null music caused game to crash
         if (backgroundMusic != null)
         {
             backgroundMusic.Play();
