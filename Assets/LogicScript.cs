@@ -8,12 +8,15 @@ public class LogicScript : MonoBehaviour
     public int playerScore;
     public Text scoreText;
     public GameObject gameOverScreen;
-    //public AudioSource backgroundMusic;
+    public AudioSource backgroundMusic;
 
     void Start()
     {
-            //backgroundMusic.loop = true;
-            //backgroundMusic.Play();
+        if (backgroundMusic != null)
+        {
+            backgroundMusic.loop = true;
+            backgroundMusic.Play();
+        }
     }
 
     [ContextMenu("Increase Score")]
@@ -24,12 +27,18 @@ public class LogicScript : MonoBehaviour
 
     public void restartGame(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        //backgroundMusic.Play();
+        if (backgroundMusic != null)
+        {
+            backgroundMusic.Stop();
+        }
     }
 
     public void gameOver(){
         gameOverScreen.SetActive(true);
-        //backgroundMusic.Stop();
+        if (backgroundMusic != null)
+        {
+            backgroundMusic.Play();
+        }
     }
 
 }
