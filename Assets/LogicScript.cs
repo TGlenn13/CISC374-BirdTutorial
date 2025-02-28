@@ -35,6 +35,7 @@ public class LogicScript : MonoBehaviour
 
     public void gameOver(){
         gameOverScreen.SetActive(true);
+        Object.FindAnyObjectByType<HighScore>().CheckForHighScore(playerScore);
         if (backgroundMusic != null)
         {
             backgroundMusic.Play();
