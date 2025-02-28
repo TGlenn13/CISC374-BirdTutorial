@@ -22,6 +22,7 @@ public class PipeMiddle : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if((collision.gameObject.layer == 3) && birdStatus.birdIsAlive) {
+            
             logic.addScore(1);
         }
     }
